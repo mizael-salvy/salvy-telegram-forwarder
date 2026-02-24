@@ -1,9 +1,9 @@
 import { Webhook } from "svix";
 
 export interface SvixHeaders {
-  "webhook-id": string;
-  "webhook-timestamp": string;
-  "webhook-signature": string;
+  "svix-id": string;
+  "svix-timestamp": string;
+  "svix-signature": string;
 }
 
 export function verifyWebhook(

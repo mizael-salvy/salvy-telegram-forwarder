@@ -21,13 +21,15 @@ app.post(
       return;
     }
 
+    console.log(req)
+
     const headers: SvixHeaders = {
-      "webhook-id": req.headers["webhook-id"] as string,
-      "webhook-timestamp": req.headers["webhook-timestamp"] as string,
-      "webhook-signature": req.headers["webhook-signature"] as string,
+      "svix-id": req.headers["svix-id"] as string,
+      "svix-timestamp": req.headers["svix-timestamp"] as string,
+      "svix-signature": req.headers["svix-signature"] as string,
     };
 
-    if (!headers["webhook-id"] || !headers["webhook-timestamp"] || !headers["webhook-signature"]) {
+    if (!headers["svix-id"] || !headers["svix-timestamp"] || !headers["svix-signature"]) {
       res.status(400).json({ error: "Missing webhook headers" });
       return;
     }
