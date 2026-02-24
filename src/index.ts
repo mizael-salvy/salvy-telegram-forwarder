@@ -1,4 +1,5 @@
 import express from "express";
+import "dotenv/config";
 import { getConfig, isConfigured } from "./config.js";
 import { verifyWebhook, type SvixHeaders } from "./verify.js";
 import { sendMessage } from "./telegram.js";
