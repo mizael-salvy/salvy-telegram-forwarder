@@ -22,8 +22,6 @@ app.post(
       return;
     }
 
-    console.log(req)
-
     const headers: SvixHeaders = {
       "svix-id": req.headers["svix-id"] as string,
       "svix-timestamp": req.headers["svix-timestamp"] as string,
