@@ -1,0 +1,21 @@
+{
+  "name": "salvy-telegram-forwarder",
+  "version": "1.0.0",
+  "description": "Forward SMS from Salvy virtual numbers to Telegram",
+  "main": "src/index.ts",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "start": "tsx src/index.ts",
+    "build": "tsc",
+    "lint": "tsc --noEmit"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "svix": "^1.44.0"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "tsx": "^4.7.0",
+    "typescript": "^5.3.3"
+  }
+}
