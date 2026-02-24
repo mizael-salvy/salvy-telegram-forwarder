@@ -2,7 +2,7 @@ import express from "express";
 import { getConfig, isConfigured } from "./config.js";
 import { verifyWebhook, type SvixHeaders } from "./verify.js";
 import { sendMessage } from "./telegram.js";
-import { formatSmsMessage } from "./formatter.js";
+import { formatSmsMessage,isSmsReceivedEventPayload } from "./formatter.js";
 
 const app = express();
 
@@ -46,12 +46,12 @@ app.post(
     }
 
     // Only process sms.received events
-    if (payload.type && payload.type !== "sms.received") {
+    if (!isSmsReceivedEventPayload(payload)) {
       res.status(200).json({ ok: true, skipped: true });
       return;
     }
 
-    const text = formatSmsMessage(payload.data || {});
+    const text = formatSmsMessage(payload.data);
 
     try {
       const result = await sendMessage(
